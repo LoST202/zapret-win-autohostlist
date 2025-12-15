@@ -3,6 +3,6 @@ googlevideo.com
 i.ytimg.com
 ggpht.com
 cloudflare-ech.com
-canary.discord.com
+discord.com
 cdn.discordapp.com
 gateway.discord.gg
