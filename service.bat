@@ -652,7 +652,7 @@ goto menu
 :ipset_switch_status
 chcp 437 > nul
 
-set "listFile=%~dp0lists\ipset-all-new-vanilla.txt"
+set "listFile=%~dp0lists\ipset-all.txt"
 for /f %%i in ('type "%listFile%" 2^>nul ^| find /c /v ""') do set "lineCount=%%i"
 
 if !lineCount!==0 (
@@ -672,17 +672,17 @@ exit /b
 chcp 437 > nul
 cls
 
-set "listFile=%~dp0lists\ipset-all-new-vanilla.txt"
+set "listFile=%~dp0lists\ipset-all.txt"
 set "backupFile=%listFile%.backup"
 
 if "%IPsetStatus%"=="loaded" (
     echo Switching to none mode...
     
     if not exist "%backupFile%" (
-        ren "%listFile%" "ipset-all-new-vanilla.txt.backup"
+        ren "%listFile%" "ipset-all.txt.backup"
     ) else (
         del /f /q "%backupFile%"
-        ren "%listFile%" "ipset-all-new-vanilla.txt.backup"
+        ren "%listFile%" "ipset-all.txt.backup"
     )
     
     >"%listFile%" (
@@ -701,7 +701,7 @@ if "%IPsetStatus%"=="loaded" (
     
     if exist "%backupFile%" (
         del /f /q "%listFile%"
-        ren "%backupFile%" "ipset-all-new-vanilla.txt"
+        ren "%backupFile%" "ipset-all.txt"
     ) else (
         echo Error: no backup to restore. Update list from service menu first
         pause
@@ -719,7 +719,7 @@ goto menu
 chcp 437 > nul
 cls
 
-set "listFile=%~dp0lists\ipset-all-new-vanilla.txt"
+set "listFile=%~dp0lists\ipset-all.txt"
 set "url=https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/refs/heads/main/.service/ipset-service.txt"
 
 echo Updating ipset-all...
